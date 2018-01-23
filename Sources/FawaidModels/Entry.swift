@@ -22,10 +22,10 @@ public protocol Entry {
   var imageURL: String? { get }
   
   /// UNIX timestamp of entry created date.
-  var createdAt: Int? { get }
+  var createdAt: Int { get }
   
   /// UNIX timestamp of entry updated date.
-  var updatedAt: Int? { get }
+  var updatedAt: Int { get }
   
   /// Type of the entry. E.g.: "book"
   var type: String { get }
