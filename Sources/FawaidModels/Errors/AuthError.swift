@@ -10,4 +10,8 @@ import Foundation
 public enum AuthError: Error {
   case invalidCredentials
   case usernameTaken
+  
+  var identifier: String {
+    return "\(self)"
+  }
 }
