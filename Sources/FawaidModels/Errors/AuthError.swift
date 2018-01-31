@@ -11,7 +11,7 @@ public enum AuthError: Error {
   case invalidCredentials
   case usernameTaken
   
-  public var identifier: String {
+  public var id: String {
     return "\(self)"
   }
 }
