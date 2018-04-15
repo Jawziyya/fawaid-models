@@ -19,7 +19,7 @@ internal extension Encodable {
 
 public typealias FeedObject = Entry & Identifiable & Encodable
 
-public struct Feed {
+public struct Feed: Codable {
   
   public let id: Int
   public let timestamp: Int
@@ -37,7 +37,7 @@ public struct Feed {
     case id, timestamp, object, objectType
   }
   
-  func encode(to encoder: Encoder) throws {
+  public func encode(to encoder: Encoder) throws {
     var container = encoder.container(keyedBy: CodingKeys.self)
     try container.encode(id, forKey: .id)
     try container.encode(timestamp, forKey: .timestamp)
