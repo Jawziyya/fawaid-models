@@ -7,7 +7,7 @@
 
 import Foundation
 
-public struct FaidaEntity: Codable {
+public struct FaidaEntity: Faida, Codable {
   
   public var id: Int?
   

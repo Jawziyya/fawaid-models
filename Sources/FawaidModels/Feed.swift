@@ -37,6 +37,22 @@ public struct Feed: Codable {
     case id, timestamp, object, objectType
   }
   
+  public init(from decoder: Decoder) throws {
+    let container = try decoder.container(keyedBy: CodingKeys.self)
+    id = try container.decode(Int.self, forKey: .id)
+    timestamp = try container.decode(Int.self, forKey: .timestamp)
+    objectType = try container.decode(FeedObjectType.self, forKey: .objectType)
+    if let book = try? container.decode(BookEntity.self, forKey: .object) {
+      object = try book.jsonData()
+    } else if let faida = try? container.decode(FaidaEntity.self, forKey: .object) {
+      object = try faida.jsonData()
+    } else if let board = try? container.decode(BoardEntity.self, forKey: .object) {
+      object = try board.jsonData()
+    } else {
+      object = Data()
+    }
+  }
+  
   public func encode(to encoder: Encoder) throws {
     var container = encoder.container(keyedBy: CodingKeys.self)
     try container.encode(id, forKey: .id)

@@ -7,7 +7,7 @@
 
 import Foundation
 
-public struct BookEntity: Codable {
+public struct BookEntity: Book, Codable {
   
   public var id: Int?
   

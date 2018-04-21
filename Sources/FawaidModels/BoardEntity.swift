@@ -7,7 +7,7 @@
 
 import Foundation
 
-public struct BoardEntity: Codable {
+public struct BoardEntity: Board, Codable {
   
   public var id: Int?
   
