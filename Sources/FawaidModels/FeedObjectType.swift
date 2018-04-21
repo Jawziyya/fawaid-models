@@ -8,7 +8,7 @@
 import Foundation
 
 public enum FeedObjectType: String, Codable {
-  case book, faida, board
+  case book, faida, faidaWithAudio, board
 }
 
 public protocol Identifiable {
