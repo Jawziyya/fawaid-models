@@ -14,6 +14,8 @@ public struct BookEntity: Book, Codable {
   public let title: String
   public let authorName: String
   
+  public let fileName: String
+  
   /// Short description
   public var caption: String?
   
