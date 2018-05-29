@@ -8,6 +8,5 @@
 public protocol Board: Entry {
   
   var title: String { get }
-  var username: String { get }
   
 }
