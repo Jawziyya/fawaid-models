@@ -31,5 +31,14 @@ public struct FaidaUpdateRequest: Codable {
     self.approved = approved
     self.notify = notify
   }
+  
+  public init(faida: Faida, approved: Bool? = nil, notify: Bool? = nil) {
+    self.title = faida.title
+    self.text = faida.text
+    self.source = faida.source
+    self.approved = approved
+    self.notify = notify
+  }
+  
 }
 
