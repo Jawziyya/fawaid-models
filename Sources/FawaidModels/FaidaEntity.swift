@@ -45,6 +45,26 @@ public struct FaidaEntity: Faida, Codable {
   
   public var createdAt: Int
   public var updatedAt: Int
+
+  public init(title: String, text: String, source: String, caption: String? = nil, tags: String? = nil, descriptionText: String? = nil, approved: Bool? = nil, hearts: Int = 0, plays: Int = 0, shares: Int = 0, views: Int = 0, screenshots: Int = 0, audioURL: String? = nil, username: String? = nil, imageURL: String? = nil, createdAt: Int = Int(Date().timeIntervalSince1970), updatedAt: Int = Int(Date().timeIntervalSince1970)) {
+    self.title = title
+    self.caption = caption
+    self.text = text
+    self.source = source
+    self.tags = tags
+    self.descriptionText = descriptionText
+    self.approved = approved
+    self.hearts = hearts
+    self.plays = plays
+    self.shares = shares
+    self.views = views
+    self.screenshots = screenshots
+    self.audioURL = audioURL
+    self.username = username
+    self.imageURL = imageURL
+    self.createdAt = createdAt
+    self.updatedAt = updatedAt
+  }
   
   public init(from decoder: Decoder) throws {
     let container = try decoder.container(keyedBy: Keys.self)
