@@ -27,7 +27,7 @@ public struct Feed: Codable {
   public let objectType: FeedObjectType
   
   public init(object: FeedObject) throws {
-    id = object.id!
+    id = object.id ?? 0
     timestamp = object.createdAt
     self.object = try object.jsonData()
     objectType = object.getFeedObjectType()

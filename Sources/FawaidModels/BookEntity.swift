@@ -42,10 +42,27 @@ public struct BookEntity: Book, Codable {
   public var hearts: Int
   public var shares: Int
   public var views: Int
+
+  public init(id: Int? = nil, title: String, authorName: String, fileName: String, caption: String? = nil, username: String? = nil, createdAt: Int, updatedAt: Int, imageURL: String? = nil, pdfURL: String? = nil, epubURL: String? = nil, docURL: String? = nil, hearts: Int = 0, shares: Int = 0, views: Int = 0) {
+    self.id = id
+    self.title = title
+    self.authorName = authorName
+    self.fileName = fileName
+    self.caption = caption
+    self.username = username
+    self.createdAt = createdAt
+    self.updatedAt = updatedAt
+    self.imageURL = imageURL
+    self.pdfURL = pdfURL
+    self.epubURL = epubURL
+    self.docURL = docURL
+    self.hearts = hearts
+    self.shares = shares
+    self.views = views
+  }
   
   public init(from decoder: Decoder) throws {
     let container = try decoder.container(keyedBy: Keys.self)
-    id = try container.decodeIfPresent(.id)
     title = try container.decode(.title)
     authorName = try container.decode(.authorName)
     fileName = try container.decode(.title)
