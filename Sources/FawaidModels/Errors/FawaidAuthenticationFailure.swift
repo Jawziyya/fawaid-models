@@ -1,5 +1,5 @@
 //
-//  AuthError.swift
+//  FawaidAuthenticationFailure.swift
 //  FawaidModels
 //
 //  Created by Abdurahim Jauzee on 28/01/2018.
@@ -7,11 +7,7 @@
 
 import Foundation
 
-public enum AuthError: Error {
+public enum FawaidAuthenticationFailure: Error {
   case invalidCredentials
   case usernameTaken
-  
-  public var id: String {
-    return "\(self)"
-  }
 }
