@@ -10,4 +10,13 @@ import Foundation
 public enum FawaidAuthenticationFailure: Error {
   case invalidCredentials
   case usernameTaken
+
+  public var identifier: String {
+    switch self {
+    case .invalidCredentials:
+      return "INVALID_CREDENTIALS"
+    case .usernameTaken:
+      return "USERNAME_TAKEN"
+    }
+  }
 }
