@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name         = 'FawaidModels'
-  s.version      = '0.1.3.2'
+  s.version      = '0.1.3.3'
   s.summary      = 'FawaidModels'
   s.license      = 'MIT'
   s.homepage     = 'https://github.com/jawziyya/fawaid-models'
