@@ -1,6 +1,6 @@
 //
 //  FaidaUpdateRequest.swift
-//  FawaidModelsPackageDescription
+//  FawaidModels
 //
 //  Created by Abdurahim Jauzee on 31/05/2018.
 //

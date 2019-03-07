@@ -1,6 +1,6 @@
 //
 //  KeyedDecodingContainer.swift
-//  FawaidModelsPackageDescription
+//  FawaidModels
 //
 //  Created by Abdurahim Jauzee on 29/05/2018.
 //

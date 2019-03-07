@@ -1,6 +1,6 @@
 //
 //  BookEntity.swift
-//  FawaidModelsPackageDescription
+//  FawaidModels
 //
 //  Created by Abdurahim Jauzee on 15/04/2018.
 //
