@@ -10,7 +10,7 @@ import Foundation
 public struct BookEntity: Book, Codable {
   
   public enum Keys: String, CodingKey {
-    case id, title, authorName, fileName
+    case id, title, authorName
     case caption, username
     case createdAt, updatedAt
     case hearts, shares, views
@@ -21,8 +21,6 @@ public struct BookEntity: Book, Codable {
   
   public let title: String
   public let authorName: String
-  
-  public let fileName: String
   
   /// Short description
   public var caption: String?
@@ -43,11 +41,10 @@ public struct BookEntity: Book, Codable {
   public var shares: Int
   public var views: Int
 
-  public init(id: Int? = nil, title: String, authorName: String, fileName: String, caption: String? = nil, username: String? = nil, createdAt: Int, updatedAt: Int, imageURL: String? = nil, pdfURL: String? = nil, epubURL: String? = nil, docURL: String? = nil, hearts: Int = 0, shares: Int = 0, views: Int = 0) {
+  public init(id: Int? = nil, title: String, authorName: String, caption: String? = nil, username: String? = nil, createdAt: Int, updatedAt: Int, imageURL: String? = nil, pdfURL: String? = nil, epubURL: String? = nil, docURL: String? = nil, hearts: Int = 0, shares: Int = 0, views: Int = 0) {
     self.id = id
     self.title = title
     self.authorName = authorName
-    self.fileName = fileName
     self.caption = caption
     self.username = username
     self.createdAt = createdAt
@@ -65,7 +62,6 @@ public struct BookEntity: Book, Codable {
     let container = try decoder.container(keyedBy: Keys.self)
     title = try container.decode(.title)
     authorName = try container.decode(.authorName)
-    fileName = try container.decode(.title)
     
     // MARK: Counters
     views = try container.decodeIfPresent(.views) ?? 0

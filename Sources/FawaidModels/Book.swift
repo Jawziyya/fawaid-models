@@ -9,7 +9,6 @@ public protocol Book: Entry {
   
   var title: String { get }
   var authorName: String { get }
-  var fileName: String { get }
   
   var pdfURL: String? { get }
   var epubURL: String? { get }
