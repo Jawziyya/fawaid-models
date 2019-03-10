@@ -8,10 +8,10 @@
 public protocol Book: Entry {
 
   /// Name of the author.
-  var authorName: String { get }
+  var author: String { get }
 
   /// Name of the sharih (explainer).
-  var sharihName: String? { get }
+  var sharih: String? { get }
 
   /// Name of the translator.
   var translator: String? { get }

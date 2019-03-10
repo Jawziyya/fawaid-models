@@ -10,17 +10,18 @@ import Foundation
 public struct BookEntity: Book, Codable {
 
   public enum Keys: String, CodingKey {
-    case id, title, authorName, descriptionText
+    case id, title, author, descriptionText
     case caption, username
     case createdAt, updatedAt
     case hearts, shares, views
+    case sharih, copyright, translator
     case imageURL, pdfURL, epubURL, docURL
   }
   
   /// The book author name.
-  public var authorName: String
+  public var author: String
 
-  public var sharihName: String?
+  public var sharih: String?
   public var translator: String?
   public var copyright: String?
 
@@ -46,28 +47,21 @@ public struct BookEntity: Book, Codable {
   public var shares: Int
   public var views: Int
 
-  public init(id: Int? = nil, title: String, authorName: String, caption: String? = nil, descriptionText: String? = nil, username: String? = nil, createdAt: Int, updatedAt: Int, imageURL: String? = nil, pdfURL: String? = nil, epubURL: String? = nil, docURL: String? = nil, hearts: Int = 0, shares: Int = 0, views: Int = 0) {
-    self.id = id
+  public init(title: String, author: String) {
     self.title = title
-    self.authorName = authorName
-    self.caption = caption
-    self.descriptionText = descriptionText
-    self.username = username
-    self.createdAt = createdAt
-    self.updatedAt = updatedAt
-    self.imageURL = imageURL
-    self.pdfURL = pdfURL
-    self.epubURL = epubURL
-    self.docURL = docURL
-    self.hearts = hearts
-    self.shares = shares
-    self.views = views
+    self.author = author
+    let timestamp = Int(Date().timeIntervalSince1970)
+    createdAt = timestamp
+    updatedAt = timestamp
+    hearts = 0
+    shares = 0
+    views = 0
   }
   
   public init(from decoder: Decoder) throws {
     let container = try decoder.container(keyedBy: Keys.self)
     title = try container.decode(.title)
-    authorName = try container.decode(.authorName)
+    author = try container.decode(.author)
     
     // MARK: Counters
     views = try container.decodeIfPresent(.views) ?? 0
@@ -80,6 +74,9 @@ public struct BookEntity: Book, Codable {
     updatedAt = try container.decodeIfPresent(.updatedAt) ?? timestamp
     
     // MARK: Optional values
+    sharih = try container.decodeIfPresent(.sharih)
+    translator = try container.decodeIfPresent(.translator)
+    copyright = try container.decodeIfPresent(.copyright)
     caption = try container.decodeIfPresent(.caption)
     id = try container.decodeIfPresent(.id)
     username = try container.decodeIfPresent(.username)
