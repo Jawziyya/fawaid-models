@@ -6,14 +6,26 @@
 //
 
 public protocol Book: Entry {
-  
-  var title: String { get }
+
+  /// Name of the author.
   var authorName: String { get }
-  var caption: String? { get }
-  var descriptionText: String? { get }
-  
+
+  /// Name of the sharih (explainer).
+  var sharihName: String? { get }
+
+  /// Name of the translator.
+  var translator: String? { get }
+
+  /// Legal info.
+  var copyright: String? { get }
+
+  /// URL for the PDF file.
   var pdfURL: String? { get }
+
+  /// URL for the EPUB file
   var epubURL: String? { get }
+
+  /// URL for the DOC file.
   var docURL: String? { get }
   
 }

@@ -8,7 +8,7 @@
 import Foundation
 
 public struct BookEntity: Book, Codable {
-  
+
   public enum Keys: String, CodingKey {
     case id, title, authorName, descriptionText
     case caption, username
@@ -17,14 +17,17 @@ public struct BookEntity: Book, Codable {
     case imageURL, pdfURL, epubURL, docURL
   }
   
-  public var id: Int?
-  
-  public let title: String
-  public let authorName: String
+  /// The book author name.
+  public var authorName: String
 
+  public var sharihName: String?
+  public var translator: String?
+  public var copyright: String?
+
+  public var id: Int?
+  public let title: String
   public var descriptionText: String?
   
-  /// Short description
   public var caption: String?
   public var username: String?
   

@@ -28,5 +28,12 @@ public struct Feed: Codable {
     self.object = try object.jsonData(encoder: encoder)
     objectType = type ?? object.getFeedObjectType()
   }
+
+  public init(id: Int, timestamp: Int, object: Data, objectType: FeedObjectType) {
+    self.id = id
+    self.timestamp = timestamp
+    self.object = object
+    self.objectType = objectType
+  }
   
 }

@@ -11,8 +11,11 @@
  All objects in the feed should implement this protocol.
  */
 public protocol Entry {
-  
-  /// A title. Required field for all entries.
+
+  /// Object identifier.
+  var id: Int? { get }
+
+  /// Entry title. Required field for all entries.
   var title: String { get }
   
   /// Short optional description of the entry.
@@ -39,7 +42,7 @@ public protocol Entry {
   /// How many times this object was displayed for the user.
   var views: Int { get }
   
-  /// Handle of the user which created the entry.
+  /// Handle of the user who has created the entry.
   var username: String? { get }
   
 }
