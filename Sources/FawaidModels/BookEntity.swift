@@ -10,7 +10,7 @@ import Foundation
 public struct BookEntity: Book, Codable {
   
   public enum Keys: String, CodingKey {
-    case id, title, authorName
+    case id, title, authorName, descriptionText
     case caption, username
     case createdAt, updatedAt
     case hearts, shares, views
@@ -21,6 +21,8 @@ public struct BookEntity: Book, Codable {
   
   public let title: String
   public let authorName: String
+
+  public var descriptionText: String?
   
   /// Short description
   public var caption: String?
@@ -41,11 +43,12 @@ public struct BookEntity: Book, Codable {
   public var shares: Int
   public var views: Int
 
-  public init(id: Int? = nil, title: String, authorName: String, caption: String? = nil, username: String? = nil, createdAt: Int, updatedAt: Int, imageURL: String? = nil, pdfURL: String? = nil, epubURL: String? = nil, docURL: String? = nil, hearts: Int = 0, shares: Int = 0, views: Int = 0) {
+  public init(id: Int? = nil, title: String, authorName: String, caption: String? = nil, descriptionText: String? = nil, username: String? = nil, createdAt: Int, updatedAt: Int, imageURL: String? = nil, pdfURL: String? = nil, epubURL: String? = nil, docURL: String? = nil, hearts: Int = 0, shares: Int = 0, views: Int = 0) {
     self.id = id
     self.title = title
     self.authorName = authorName
     self.caption = caption
+    self.descriptionText = descriptionText
     self.username = username
     self.createdAt = createdAt
     self.updatedAt = updatedAt
@@ -74,9 +77,10 @@ public struct BookEntity: Book, Codable {
     updatedAt = try container.decodeIfPresent(.updatedAt) ?? timestamp
     
     // MARK: Optional values
+    caption = try container.decodeIfPresent(.caption)
     id = try container.decodeIfPresent(.id)
     username = try container.decodeIfPresent(.username)
-    caption = try container.decodeIfPresent(.caption)
+    descriptionText = try container.decodeIfPresent(.descriptionText)
     imageURL = try container.decodeIfPresent(.imageURL)
     pdfURL = try container.decodeIfPresent(.pdfURL)
     epubURL = try container.decodeIfPresent(.epubURL)
