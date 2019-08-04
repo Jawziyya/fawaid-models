@@ -10,7 +10,7 @@
  
  All objects in the feed should implement this protocol.
  */
-public protocol Entry {
+public protocol Entry: Identifiable, Codable {
 
   /// Object identifier.
   var id: Int? { get }
