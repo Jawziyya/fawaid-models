@@ -17,7 +17,7 @@ public protocol Identifiable {
 
 public extension Identifiable {
   
-  public func getFeedObjectType() -> FeedObjectType {
+  func getFeedObjectType() -> FeedObjectType {
     guard let objectType = String(describing: type(of: self)).components(separatedBy: "Entity").first else {
       return .faida
     }

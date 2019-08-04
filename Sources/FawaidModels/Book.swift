@@ -19,6 +19,9 @@ public protocol Book: Entry {
   /// Legal info.
   var copyright: String? { get }
 
+  /// Detailed description.
+  var descriptionText: String? { get }
+
   /// URL for the PDF file.
   var pdfURL: String? { get }
 
@@ -27,5 +30,5 @@ public protocol Book: Entry {
 
   /// URL for the DOC file.
   var docURL: String? { get }
-  
+
 }
