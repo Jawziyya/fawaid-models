@@ -8,7 +8,7 @@
 /**
  Base protocol.
  */
-public protocol Entry: Identifiable, Codable {
+public protocol Entry: Codable {
     
     /// Object identifier.
     var id: Int? { get }
