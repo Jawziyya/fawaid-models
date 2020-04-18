@@ -11,12 +11,14 @@ public enum TrackingAction: String, Codable, CaseIterable {
 
 public struct AnalyticsItem: Codable {
 
+    public let id: Int?
     public let action: TrackingAction
     public let number: Int
     public let objectId: Int
     public let objectType: String
 
     public init(objectId: Int, objectType: String, action: TrackingAction, number: Int) {
+        id = nil
         self.action = action
         self.number = number
         self.objectId = objectId
