@@ -28,15 +28,6 @@ public protocol Entry: Identifiable, Codable {
     /// Type of the entry. E.g.: "book"
     var type: String { get }
     
-    /// Number of Likes for the object.
-    var hearts: Int { get }
-    
-    /// Number of Shares of the object.
-    var shares: Int { get }
-    
-    /// How many times this object was displayed for the user.
-    var views: Int { get }
-    
     /// Handle of the user who has created the entry.
     var username: String? { get }
     

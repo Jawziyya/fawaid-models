@@ -14,7 +14,6 @@ public struct FaidaEntity: Faida, Codable {
     public enum Keys: String, CodingKey {
         case id
         case title, caption, text, source, tags
-        case hearts, plays, shares, views, screenshots
         case audioURL, username
         case descriptionText
         case approved
@@ -33,12 +32,6 @@ public struct FaidaEntity: Faida, Codable {
 
     public var approved: Bool?
 
-    public var hearts: Int
-    public var plays: Int
-    public var shares: Int
-    public var views: Int
-    public var screenshots: Int
-
     public var audioURL: String?
     public var username: String?
     public var imageURL: String?
@@ -46,7 +39,7 @@ public struct FaidaEntity: Faida, Codable {
     public var createdAt: Int
     public var updatedAt: Int
 
-    public init(title: String, text: String, source: String, caption: String? = nil, tags: String? = nil, descriptionText: String? = nil, approved: Bool? = nil, hearts: Int = 0, plays: Int = 0, shares: Int = 0, views: Int = 0, screenshots: Int = 0, audioURL: String? = nil, username: String? = nil, imageURL: String? = nil, createdAt: Int = Int(Date().timeIntervalSince1970), updatedAt: Int = Int(Date().timeIntervalSince1970)) {
+    public init(title: String, text: String, source: String, caption: String? = nil, tags: String? = nil, descriptionText: String? = nil, approved: Bool? = nil, audioURL: String? = nil, username: String? = nil, imageURL: String? = nil, createdAt: Int = Int(Date().timeIntervalSince1970), updatedAt: Int = Int(Date().timeIntervalSince1970)) {
         self.title = title
         self.caption = caption
         self.text = text
@@ -54,11 +47,6 @@ public struct FaidaEntity: Faida, Codable {
         self.tags = tags
         self.descriptionText = descriptionText
         self.approved = approved
-        self.hearts = hearts
-        self.plays = plays
-        self.shares = shares
-        self.views = views
-        self.screenshots = screenshots
         self.audioURL = audioURL
         self.username = username
         self.imageURL = imageURL
@@ -72,12 +60,6 @@ public struct FaidaEntity: Faida, Codable {
         title = try container.decode(.title)
         text = try container.decode(.text)
         source = try container.decode(.source)
-        
-        views = try container.decodeIfPresent(.views) ?? 0
-        hearts = try container.decodeIfPresent(.hearts) ?? 0
-        shares = try container.decodeIfPresent(.shares) ?? 0
-        plays = try container.decodeIfPresent(.plays) ?? 0
-        screenshots = try container.decodeIfPresent(.screenshots) ?? 0
 
         let timestamp = Int(Date().timeIntervalSince1970)
         createdAt = try container.decodeIfPresent(.createdAt) ?? timestamp
