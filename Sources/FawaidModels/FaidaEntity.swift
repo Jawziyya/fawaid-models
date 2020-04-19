@@ -22,7 +22,6 @@ public struct FaidaEntity: Faida, Codable {
     }
 
     public var title: String
-    public var caption: String?
 
     public var text: String
     public var source: String
@@ -39,9 +38,8 @@ public struct FaidaEntity: Faida, Codable {
     public var createdAt: Int
     public var updatedAt: Int
 
-    public init(title: String, text: String, source: String, caption: String? = nil, tags: String? = nil, descriptionText: String? = nil, approved: Bool? = nil, audioURL: String? = nil, username: String? = nil, imageURL: String? = nil, createdAt: Int = Int(Date().timeIntervalSince1970), updatedAt: Int = Int(Date().timeIntervalSince1970)) {
+    public init(title: String, text: String, source: String, tags: String? = nil, descriptionText: String? = nil, approved: Bool? = nil, audioURL: String? = nil, username: String? = nil, imageURL: String? = nil, createdAt: Int = Int(Date().timeIntervalSince1970), updatedAt: Int = Int(Date().timeIntervalSince1970)) {
         self.title = title
-        self.caption = caption
         self.text = text
         self.source = source
         self.tags = tags
@@ -69,7 +67,6 @@ public struct FaidaEntity: Faida, Codable {
         id = try container.decodeIfPresent(.id)
         tags = try container.decodeIfPresent(.tags)
         descriptionText = try container.decodeIfPresent(.descriptionText)
-        caption = try container.decodeIfPresent(.caption)
         audioURL = try container.decodeIfPresent(.audioURL)
         imageURL = try container.decodeIfPresent(.imageURL)
         username = try container.decodeIfPresent(.username)

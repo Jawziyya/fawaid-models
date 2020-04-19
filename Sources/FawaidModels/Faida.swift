@@ -25,7 +25,4 @@ public protocol Faida: Entry {
     /// URL of the audio file to play.
     var audioURL: String? { get }
 
-    /// Short optional description of the entry.
-    var caption: String? { get }
-    
 }
