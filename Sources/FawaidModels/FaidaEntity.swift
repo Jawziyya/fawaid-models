@@ -35,10 +35,10 @@ public struct FaidaEntity: Faida, Codable {
     public var username: String?
     public var imageURL: String?
 
-    public var createdAt: Int
-    public var updatedAt: Int
+    public var createdAt: Date
+    public var updatedAt: Date
 
-    public init(title: String, text: String, source: String, tags: String? = nil, descriptionText: String? = nil, approved: Bool? = nil, audioURL: String? = nil, username: String? = nil, imageURL: String? = nil, createdAt: Int = Int(Date().timeIntervalSince1970), updatedAt: Int = Int(Date().timeIntervalSince1970)) {
+    public init(title: String, text: String, source: String, tags: String? = nil, descriptionText: String? = nil, approved: Bool? = nil, audioURL: String? = nil, username: String? = nil, imageURL: String? = nil, createdAt: Date = Date(), updatedAt: Date = Date()) {
         self.title = title
         self.text = text
         self.source = source
@@ -59,7 +59,7 @@ public struct FaidaEntity: Faida, Codable {
         text = try container.decode(.text)
         source = try container.decode(.source)
 
-        let timestamp = Int(Date().timeIntervalSince1970)
+        let timestamp = Date()
         createdAt = try container.decodeIfPresent(.createdAt) ?? timestamp
         updatedAt = try container.decodeIfPresent(.updatedAt) ?? timestamp
 

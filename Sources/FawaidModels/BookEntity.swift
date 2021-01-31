@@ -13,7 +13,6 @@ public struct BookEntity: Book, Codable {
         case id, title, author, descriptionText
         case caption, username
         case createdAt, updatedAt
-        case hearts, shares, views
         case sharih, copyright, translator
         case imageURL, pdfURL, epubURL, docURL
         case pagesNumber, category
@@ -41,19 +40,14 @@ public struct BookEntity: Book, Codable {
     public var username: String?
 
     // MARK: - Timestamps
-    public var createdAt: Int
-    public var updatedAt: Int
+    public var createdAt: Date
+    public var updatedAt: Date
     
     // MARK: - URLS
     public var imageURL: String?
     public var pdfURL: String?
     public var epubURL: String?
     public var docURL: String?
-    
-    // MARK: - Counters
-    public var hearts: Int
-    public var shares: Int
-    public var views: Int
 
     public init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: Keys.self)
@@ -68,13 +62,8 @@ public struct BookEntity: Book, Codable {
         publishingDate = try container.decodeIfPresent(.publishingDate)
         ISBN = try container.decodeIfPresent(.ISBN)
 
-        // MARK: Counters
-        views = try container.decodeIfPresent(.views) ?? 0
-        hearts = try container.decodeIfPresent(.hearts) ?? 0
-        shares = try container.decodeIfPresent(.shares) ?? 0
-        
         // MARK: Timestamps
-        let timestamp = Int(Date().timeIntervalSince1970)
+        let timestamp = Date()
         createdAt = try container.decodeIfPresent(.createdAt) ?? timestamp
         updatedAt = try container.decodeIfPresent(.updatedAt) ?? timestamp
         

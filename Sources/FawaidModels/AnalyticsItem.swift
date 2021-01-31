@@ -1,5 +1,5 @@
 //
-//  File.swift
+//  AnalyticsItem.swift
 //  
 //
 //  Created by Abdurahim Jauzee on 18.04.2020.
@@ -9,20 +9,10 @@ public enum TrackingAction: String, Codable, CaseIterable {
     case view, play, share, download, screenshot
 }
 
-public struct AnalyticsItem: Codable {
-
-    public let id: Int?
-    public let action: String
-    public let number: Int
-    public let objectId: Int
-    public let objectType: String
-
-    public init(objectId: Int, objectType: String, action: TrackingAction, number: Int) {
-        id = nil
-        self.action = action.rawValue
-        self.number = number
-        self.objectId = objectId
-        self.objectType = objectType
-    }
-
+public protocol AnalyticsItem {
+    var id: Int? { get }
+    var action: String { get }
+    var count: Int { get }
+    var objectId: Int { get }
+    var objectType: String { get }
 }

@@ -5,6 +5,8 @@
 //  Created by Abdurahim Jauzee on 24/01/2018.
 //
 
+import Foundation
+
 /**
  Base protocol.
  */
@@ -19,11 +21,11 @@ public protocol Entry: Codable {
     /// Optional URL of a cover image.
     var imageURL: String? { get }
     
-    /// UNIX timestamp of entry created date (seconds since 1970).
-    var createdAt: Int { get }
+    /// Timestamp of entry created date.
+    var createdAt: Date { get }
     
-    /// UNIX timestamp of entry updated date (seconds since 1970).
-    var updatedAt: Int { get set }
+    /// Timestamp of entry updated date.
+    var updatedAt: Date { get set }
     
     /// Type of the entry. E.g.: "book"
     var type: String { get }
