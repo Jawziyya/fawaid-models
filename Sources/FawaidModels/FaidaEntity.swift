@@ -35,8 +35,8 @@ public struct FaidaEntity: Faida, Codable {
     public var username: String?
     public var imageURL: String?
 
-    public var createdAt: Date
-    public var updatedAt: Date
+    public var createdAt: Date?
+    public var updatedAt: Date?
 
     public init(title: String, text: String, source: String, tags: String? = nil, descriptionText: String? = nil, approved: Bool? = nil, audioURL: String? = nil, username: String? = nil, imageURL: String? = nil, createdAt: Date = Date(), updatedAt: Date = Date()) {
         self.title = title

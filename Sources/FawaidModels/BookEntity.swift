@@ -40,8 +40,8 @@ public struct BookEntity: Book, Codable {
     public var username: String?
 
     // MARK: - Timestamps
-    public var createdAt: Date
-    public var updatedAt: Date
+    public var createdAt: Date?
+    public var updatedAt: Date?
     
     // MARK: - URLS
     public var imageURL: String?

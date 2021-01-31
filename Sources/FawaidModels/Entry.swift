@@ -22,10 +22,10 @@ public protocol Entry: Codable {
     var imageURL: String? { get }
     
     /// Timestamp of entry created date.
-    var createdAt: Date { get }
+    var createdAt: Date? { get }
     
     /// Timestamp of entry updated date.
-    var updatedAt: Date { get set }
+    var updatedAt: Date? { get set }
     
     /// Type of the entry. E.g.: "book"
     var type: String { get }
